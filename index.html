@@ -1,0 +1,459 @@
+<!doctype html>
+<html lang="is">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Kílómetrastaða bifreiða</title>
+<meta name="theme-color" content="#b3261e">
+<meta name="apple-mobile-web-app-title" content="Km staða">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="application-name" content="Km staða">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%20512%20512%22%3E%20%3Crect%20width%3D%22512%22%20height%3D%22512%22%20rx%3D%22112%22%20fill%3D%22%23b3261e%22/%3E%20%3Cpath%20d%3D%22M96%20318%20A160%20160%200%200%201%20416%20318%22%20fill%3D%22none%22%20stroke%3D%22%23fff%22%20stroke-width%3D%2234%22%20stroke-linecap%3D%22round%22%20opacity%3D%22.28%22/%3E%20%3Cpath%20d%3D%22M96%20318%20A160%20160%200%200%201%20345%20185%22%20fill%3D%22none%22%20stroke%3D%22%23fff%22%20stroke-width%3D%2234%22%20stroke-linecap%3D%22round%22/%3E%20%3Cg%20stroke%3D%22%23fff%22%20stroke-width%3D%2214%22%20stroke-linecap%3D%22round%22%3E%20%3Cline%20x1%3D%22150%22%20y1%3D%22318%22%20x2%3D%22170%22%20y2%3D%22318%22/%3E%20%3Cline%20x1%3D%22182%22%20y1%3D%22216%22%20x2%3D%22196%22%20y2%3D%22230%22/%3E%20%3Cline%20x1%3D%22256%22%20y1%3D%22174%22%20x2%3D%22256%22%20y2%3D%22194%22/%3E%20%3Cline%20x1%3D%22330%22%20y1%3D%22216%22%20x2%3D%22316%22%20y2%3D%22230%22/%3E%20%3Cline%20x1%3D%22362%22%20y1%3D%22318%22%20x2%3D%22342%22%20y2%3D%22318%22/%3E%20%3C/g%3E%20%3Cline%20x1%3D%22256%22%20y1%3D%22318%22%20x2%3D%22312%22%20y2%3D%22252%22%20stroke%3D%22%23fff%22%20stroke-width%3D%2220%22%20stroke-linecap%3D%22round%22/%3E%20%3Ccircle%20cx%3D%22256%22%20cy%3D%22318%22%20r%3D%2230%22%20fill%3D%22%23fff%22/%3E%20%3Ccircle%20cx%3D%22256%22%20cy%3D%22318%22%20r%3D%2211%22%20fill%3D%22%23b3261e%22/%3E%20%3Crect%20x%3D%22146%22%20y%3D%22372%22%20width%3D%22220%22%20height%3D%2274%22%20rx%3D%2216%22%20fill%3D%22%23fff%22/%3E%20%3Ctext%20x%3D%22256%22%20y%3D%22425%22%20text-anchor%3D%22middle%22%20font-family%3D%22Arial%2C%20Helvetica%2C%20sans-serif%22%20font-weight%3D%22700%22%20font-size%3D%2250%22%20fill%3D%22%23b3261e%22%20letter-spacing%3D%222%22%3EKM%3C/text%3E%20%3C/svg%3E">
+<link rel="apple-touch-icon" href="data:image/png;base64,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">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
+<style>
+:root{
+  --bg:#f4f2ef;--card:#fff;--ink:#1d1d1f;--muted:#6b6b70;--line:#dedad4;
+  --accent:#b3261e;--accent-ink:#fff;--ok:#2e7d32;--warn:#a15c00;--bad:#b3261e;
+  --warn-bg:#fff4e0;--bad-bg:#fdecea;--ok-bg:#e8f5e9;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#151517;--card:#1f1f22;--ink:#ececee;--muted:#9a9aa0;--line:#333338;
+    --accent:#e5534b;--accent-ink:#fff;--ok:#6cc070;--warn:#e0a24a;--bad:#ff7a70;
+    --warn-bg:#3a2c12;--bad-bg:#3d1c1a;--ok-bg:#1c3320;
+  }
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.4 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
+header{background:var(--accent);color:var(--accent-ink);padding:18px 16px 14px}
+header h1{margin:0;font-size:1.25rem}
+header p{margin:4px 0 0;opacity:.9;font-size:.9rem}
+main{max-width:720px;margin:0 auto;padding:16px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:14px;margin-bottom:14px}
+.meta{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+@media(max-width:480px){.meta{grid-template-columns:1fr}}
+label.f{display:block;font-size:.8rem;color:var(--muted);margin-bottom:4px}
+select{appearance:none;-webkit-appearance:none;background-image:linear-gradient(45deg,transparent 50%,var(--muted) 50%),linear-gradient(135deg,var(--muted) 50%,transparent 50%);background-position:calc(100% - 18px) 55%,calc(100% - 13px) 55%;background-size:5px 5px;background-repeat:no-repeat;padding-right:32px}
+input,textarea,select{width:100%;font:inherit;color:var(--ink);background:var(--bg);border:1px solid var(--line);border-radius:8px;padding:10px}
+select{background-color:var(--bg)}
+select.empty{color:var(--muted)}
+input:focus,textarea:focus,select:focus{outline:2px solid var(--accent);outline-offset:-1px}
+h2{font-size:1rem;margin:0 0 8px;display:flex;justify-content:space-between;align-items:baseline}
+h2 small{font-weight:400;color:var(--muted);font-size:.8rem}
+.row{display:grid;grid-template-columns:88px 1fr;gap:4px 12px;align-items:center;padding:10px 0;border-top:1px solid var(--line)}
+.row:first-of-type{border-top:0}
+.plate{font-weight:700;font-family:ui-monospace,Menlo,Consolas,monospace;font-size:1.05rem}
+.prev{font-size:.78rem;color:var(--muted)}
+.type{font-weight:600;font-size:.95rem}
+.type + .plate{font-size:.85rem;font-weight:600;color:var(--muted)}
+.row{grid-template-columns:100px 1fr}
+.inwrap{position:relative}
+.inwrap input{padding-right:40px;font-variant-numeric:tabular-nums;font-size:1.05rem}
+.inwrap span{position:absolute;right:10px;top:50%;transform:translateY(-50%);color:var(--muted);font-size:.85rem}
+.msg{grid-column:2;font-size:.8rem;min-height:0}
+.msg.ok{color:var(--ok)} .msg.warn{color:var(--warn)} .msg.bad{color:var(--bad)}
+.row.warn input{border-color:var(--warn);background:var(--warn-bg)}
+.row.bad input{border-color:var(--bad);background:var(--bad-bg)}
+.row.done input{border-color:var(--ok)}
+details summary{cursor:pointer;font-weight:600;list-style:none}
+details summary::-webkit-details-marker{display:none}
+details summary::before{content:"▸ ";color:var(--muted)}
+details[open] summary::before{content:"▾ "}
+.progress{position:sticky;top:0;z-index:5;background:var(--bg);padding:8px 0}
+.bar{height:6px;background:var(--line);border-radius:3px;overflow:hidden}
+.bar i{display:block;height:100%;background:var(--ok);width:0;transition:width .2s}
+.progress div.t{font-size:.85rem;color:var(--muted);margin-bottom:4px}
+.actions{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+@media(max-width:480px){.actions{grid-template-columns:1fr}}
+button{font:inherit;font-weight:600;border-radius:10px;padding:12px;border:1px solid var(--line);background:var(--card);color:var(--ink);cursor:pointer}
+button.primary{background:var(--accent);border-color:var(--accent);color:var(--accent-ink)}
+button.ghost{background:transparent;color:var(--muted);font-weight:400}
+.note{font-size:.85rem;color:var(--muted);margin:8px 0 0}
+#status{font-size:.9rem;margin-top:10px;padding:10px;border-radius:8px;display:none}
+#status.show{display:block;background:var(--ok-bg);color:var(--ok)}
+#status.err{background:var(--warn-bg);color:var(--warn)}
+.tabs{display:inline-flex;gap:4px;background:var(--line);border-radius:24px;padding:4px;margin-bottom:14px}
+.tab{padding:8px 18px;border:0;border-radius:20px;background:transparent;color:var(--muted);font-weight:500}
+.tab.active{background:var(--card);color:var(--ink);font-weight:600}
+.hrow{display:flex;justify-content:space-between;align-items:center;gap:12px;cursor:pointer}
+.hrow:hover{border-color:var(--muted)}
+.hrow b{display:block}
+.hrow small{color:var(--muted)}
+.hrow .n{font-size:1.1rem;font-weight:700;text-align:right;white-space:nowrap}
+table.d{width:100%;border-collapse:collapse;font-size:.92rem}
+table.d td{padding:6px 4px;border-top:1px solid var(--line)}
+table.d td.r{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}
+table.d tr.g td{border-top:0;padding-top:12px;font-weight:700}
+.empty-h{color:var(--muted);padding:16px 0}
+</style>
+</head>
+<body>
+<header>
+  <h1>Kílómetrastaða bifreiða</h1>
+  <p>Slökkvilið Ísafjarðarbæjar</p>
+</header>
+<main>
+  <div class="tabs" role="tablist">
+    <button class="tab active" id="tab-list" onclick="showTab('list')">🚗 Skráning</button>
+    <button class="tab" id="tab-history" onclick="showTab('history')">⏱ Saga</button>
+  </div>
+
+  <div id="view-list">
+  <div class="card meta">
+    <div><label class="f" for="date">Dagsetning</label><input type="date" id="date"></div>
+    <div><label class="f" for="whoSel">Skráð af</label>
+      <select id="whoSel"></select>
+      <input type="text" id="whoOther" placeholder="Skrifaðu nafn" autocomplete="name" style="display:none;margin-top:8px">
+    </div>
+  </div>
+
+  <div class="progress"><div class="t" id="ptext"></div><div class="bar"><i id="pbar"></i></div></div>
+
+  <div id="groups"></div>
+
+  <div class="card">
+    <label class="f" for="notes">Athugasemdir</label>
+    <textarea id="notes" rows="3" placeholder="T.d. bíll á verkstæði, mælir bilaður…"></textarea>
+  </div>
+
+  <div class="card">
+    <button class="primary" id="btnMail" style="width:100%">📧 Vista og senda</button>
+    <div class="actions" style="margin-top:10px">
+      <button id="btnXlsx">📊 Sækja Excel-skrá</button>
+      <button id="btnCopy">📋 Afrita texta</button>
+    </div>
+    <button class="ghost" id="btnClear" style="width:100%;margin-top:10px">↺ Hreinsa skráningu</button>
+    <div id="status"></div>
+    <p class="note">„Vista og senda“ vistar skráninguna í Sögu og gerir tölurnar að viðmiði fyrir næstu skráningu.</p>
+  </div>
+  </div>
+
+  <div id="view-history" style="display:none">
+    <div id="history-list"></div>
+    <div id="history-detail" style="display:none"></div>
+  </div>
+</main>
+
+<script>
+const EMAIL = "rakelbjorns@isafjordur.is";   // viðtakandi
+const EMAIL_CC = "slokkvilid@isafjordur.is"; // afrit (cc)
+const STORE_KEY = "kmstada-draft-v1";
+const BASE_KEY  = "kmstada-base-v1";
+const HISTORY_KEY = "kmstada-history-v1";
+
+// Síðasta skráða staða (úr Excel-skjali 28.10.2026)
+const DEFAULT_BASE = { date: "2026-10-28", km: {
+  SFK24:27526, MED06:111968, DNA72:37043, NH587:46264, KO750:554926, TN115:7948, MYF54:5340, JYS46:3069,
+  TM782:133738, GRP74:1581, "FÖ771":106568, NSA57:1808, "Í1501":214544, "Í1507":3814
+}};
+
+// Tegund bifreiðar
+const TYPES = {
+  MED06:"Toyota", JYS46:"Spring", KO750:"Tankari", NH587:"Karfa", TN115:"Renault", MYF54:"Iveco",
+  SFK24:"Tesla", DNA72:"Isuzu", NSA57:"Ford", "FÖ771":"Tankari", TM782:"Benz", GRP74:"Ford"
+};
+// Birta númer með bandstriki (ME-D06); fornbílar óbreyttir
+const plate = c => /^[A-ZÁÐÉÍÓÚÝÞÆÖ]{2}[A-Z0-9]{3}$/.test(c) && !/^Í\d/.test(c) ? c.slice(0,2)+"-"+c.slice(2) : c;
+const label = c => TYPES[c] ? `${TYPES[c]} ${plate(c)}` : plate(c);
+
+const GROUPS = [
+  { name:"Ísafjörður", cars:["MED06","JYS46","KO750","NH587","TN115","MYF54","SFK24","DNA72"] },
+  { name:"Þingeyri",   cars:["NSA57","FÖ771"] },
+  { name:"Suðureyri",  cars:["TM782"] },
+  { name:"Flateyri",   cars:["GRP74"] },
+  { name:"Fornbílar – ekki í notkun og ekki á númerum", cars:["Í1501","Í1507"], optional:true }
+];
+// Starfsmenn sem skrá kílómetrastöðu
+const NAMES = [
+  "Eiríkur G. Johansson",
+  "Sveinn H. Þorbjörnsson",
+  "Þorkell L. Þorkellsson",
+  "Sigurður A. Jónsson",
+  "Hermann G. Hermansson"
+].sort((a,b)=>a.localeCompare(b,"is"));
+const OTHER = "__annar__";
+const WHO_KEY = "kmstada-who-v1";
+
+const JUMP_WARN = 5000; // km frá síðustu skráningu sem kallar á athugun
+
+/* ---------- geymsla (virkar líka ef localStorage er lokað) ---------- */
+function load(k){ try{ const v = localStorage.getItem(k); return v ? JSON.parse(v) : null; }catch(e){ return null; } }
+function save(k,v){ try{ localStorage.setItem(k, JSON.stringify(v)); }catch(e){} }
+
+let base = load(BASE_KEY) || DEFAULT_BASE;
+let draft = load(STORE_KEY) || {};
+
+/* ---------- hjálparföll ---------- */
+const fmt = n => n==null || n==="" ? "" : Number(n).toLocaleString("de-DE"); // 12.345
+const parse = s => { const d = String(s).replace(/\D/g,""); return d==="" ? null : Number(d); };
+const isDate = iso => { const [y,m,d] = iso.split("-"); return `${d}.${m}.${y}`; };
+const MONTHS = ["Janúar","Febrúar","Mars","Apríl","Maí","Júní","Júlí","Ágúst","September","Október","Nóvember","Desember"];
+const stamp = iso => { const t=new Date(iso); const z=n=>String(n).padStart(2,"0"); return `${z(t.getDate())}.${z(t.getMonth()+1)}.${t.getFullYear()} kl. ${z(t.getHours())}:${z(t.getMinutes())}`; };
+const todayISO = () => { const t=new Date(); t.setMinutes(t.getMinutes()-t.getTimezoneOffset()); return t.toISOString().slice(0,10); };
+const allCars = () => GROUPS.flatMap(g=>g.cars);
+const requiredCars = () => GROUPS.filter(g=>!g.optional).flatMap(g=>g.cars);
+
+/* ---------- teikna ---------- */
+function render(){
+  const root = document.getElementById("groups");
+  root.innerHTML = "";
+  GROUPS.forEach(g=>{
+    const card = document.createElement(g.optional ? "details" : "div");
+    card.className = "card";
+    const head = g.optional ? document.createElement("summary") : document.createElement("h2");
+    head.innerHTML = g.optional ? `${g.name} <small style="font-weight:400;color:var(--muted)">(valkvætt)</small>`
+                                : `${g.name} <small>${g.cars.length} ${g.cars.length===1?"bíll":"bílar"}</small>`;
+    card.appendChild(head);
+    root.appendChild(card);
+    if (g.optional && g.cars.some(c=>draft[c]!=null)) card.open = true;
+    g.cars.forEach(c=>{
+      const row = document.createElement("div");
+      row.className = "row"; row.id = "row-"+c;
+      const prev = base.km[c];
+      row.innerHTML = `
+        <div>${TYPES[c] ? `<div class="type">${TYPES[c]}</div>` : ""}<div class="plate">${plate(c)}</div><div class="prev">Síðast: ${fmt(prev)}</div></div>
+        <div class="inwrap"><input type="text" inputmode="numeric" pattern="[0-9]*" enterkeyhint="next" autocomplete="off" autocorrect="off" spellcheck="false" aria-label="km staða ${label(c)}" data-car="${c}" placeholder="km staða"><span>km</span></div>
+        <div></div><div class="msg" id="msg-${c}"></div>`;
+      card.appendChild(row);
+      const inp = row.querySelector("input");
+      if (draft[c]!=null) inp.value = fmt(draft[c]);
+      inp.addEventListener("input", e=>{
+        const v = parse(e.target.value);
+        if (v==null) delete draft[c]; else draft[c]=v;
+        persist(); check(c);
+      });
+      inp.addEventListener("blur", e=>{ if(draft[c]!=null) e.target.value = fmt(draft[c]); });
+      inp.addEventListener("keydown", e=>{
+        if(e.key==="Enter"){ e.preventDefault(); const all=[...document.querySelectorAll("input[data-car]")]; const i=all.indexOf(e.target); if(all[i+1]) all[i+1].focus(); else e.target.blur(); }
+      });
+      check(c);
+    });
+  });
+  progress();
+}
+
+function check(c){
+  const row = document.getElementById("row-"+c), msg = document.getElementById("msg-"+c);
+  row.classList.remove("ok","warn","bad","done"); msg.className="msg"; msg.textContent="";
+  const v = draft[c], prev = base.km[c];
+  if (v!=null && prev!=null){
+    const diff = v - prev;
+    if (diff < 0){ row.classList.add("bad"); msg.classList.add("bad"); msg.textContent = `Lægra en síðast (${fmt(diff)} km) – athugaðu töluna`; }
+    else if (diff > JUMP_WARN){ row.classList.add("warn"); msg.classList.add("warn"); msg.textContent = `+${fmt(diff)} km síðan síðast – óvenju mikið, athugaðu`; }
+    else { row.classList.add("done"); msg.classList.add("ok"); msg.textContent = `+${fmt(diff)} km`; }
+  } else if (v!=null){ row.classList.add("done"); }
+  progress();
+}
+
+function progress(){
+  const req = requiredCars(), n = req.filter(c=>draft[c]!=null).length;
+  document.getElementById("ptext").textContent = `${n} af ${req.length} bílum skráðir` + (n===req.length ? " ✓" : "");
+  document.getElementById("pbar").style.width = (100*n/req.length)+"%";
+}
+
+function persist(){
+  save(STORE_KEY, Object.assign({}, draft, {_date:dateEl.value, _who:who(), _notes:notesEl.value}));
+  if (who()) save(WHO_KEY, who());
+}
+
+/* ---------- skráning sem gögn ---------- */
+function currentRecord(){
+  const km = {}; allCars().forEach(c=>{ if (draft[c]!=null) km[c]=draft[c]; });
+  return { id: Date.now(), date: dateEl.value, who: who(), km, prev: Object.assign({}, base.km),
+           notes: notesEl.value.trim(), savedAt: new Date().toISOString() };
+}
+const getHistory = () => load(HISTORY_KEY) || [];
+
+/* ---------- útflutningur ---------- */
+function headerLine(rec){ return `Kílómetrastaða hjá Slökkviliði Ísafjarðarbæjar ${isDate(rec.date)}.`; }
+
+function buildText(rec){
+  rec = rec || currentRecord();
+  const L = [headerLine(rec)];
+  if (rec.who) L.push(`Skráð af: ${rec.who}`);
+  GROUPS.forEach(g=>{
+    const cars = g.optional ? g.cars.filter(c=>rec.km[c]!=null) : g.cars;
+    if (!cars.length) return;
+    L.push("", g.name);
+    cars.forEach(c=>{
+      const v = rec.km[c], prev = rec.prev[c];
+      let d = "";
+      if (v!=null && prev!=null) d = ` (${v-prev>=0?"+":""}${fmt(v-prev)})`;
+      L.push(`${label(c)}: ${v==null ? "ekki skráð" : fmt(v)+" km"}${d}`);
+    });
+  });
+  if (rec.notes) L.push("", "Athugasemdir:", rec.notes);
+  return L.join("\n");
+}
+
+async function openMail(rec){
+  const body = buildText(rec);
+  const subject = `Kílómetrastaða ${isDate(rec.date)}`;
+  const url = `mailto:${EMAIL}?cc=${EMAIL_CC}&subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+  if (url.length > 1800){
+    const ok = await copyText(body);
+    return { ok:false, msg: ok ? `Textinn er of langur fyrir póstforritið og var afritaður. Opnaðu nýjan póst til ${EMAIL} (cc ${EMAIL_CC}) og límdu hann inn.`
+                               : `Textinn er of langur fyrir póstforritið. Notaðu „Afrita texta“ og sendu á ${EMAIL} (cc ${EMAIL_CC}).` };
+  }
+  window.location.href = url;
+  return { ok:true, msg:`póstforrit opnað á ${EMAIL}, afrit á ${EMAIL_CC}.` };
+}
+
+function downloadXlsx(rec){
+  if (typeof XLSX === "undefined") return false;
+  const rows = [[headerLine(rec)]];
+  if (rec.who) rows.push([`Skráð af: ${rec.who}`]);
+  GROUPS.forEach(g=>{
+    rows.push([g.optional ? "Fornbílar-ekki í notkun og ekki á númerum" : g.name]);
+    if (!g.optional) rows.push(["Bíll","km staða","Bílnúmer"]);
+    g.cars.forEach(c=> rows.push([TYPES[c] || "", rec.km[c]!=null ? rec.km[c] : (g.optional ? rec.prev[c] : null), plate(c)]));
+  });
+  if (rec.notes) rows.push([], ["Athugasemdir"], [rec.notes]);
+  const ws = XLSX.utils.aoa_to_sheet(rows);
+  ws["!cols"] = [{wch:14},{wch:12},{wch:12}];
+  for (const k in ws){ if(k[0]!=="!" && k.startsWith("B") && typeof ws[k].v==="number") ws[k].z = "#,##0"; }
+  const [y,m,d] = rec.date.split("-");
+  const wb = XLSX.utils.book_new();
+  XLSX.utils.book_append_sheet(wb, ws, `${MONTHS[+m-1]} ${y}`);
+  XLSX.writeFile(wb, `Km_staða_slökkviliðsins_${d}.${m}.${y}.xlsx`);
+  return true;
+}
+
+function problems(){
+  const missing = requiredCars().filter(c=>draft[c]==null);
+  const lower = allCars().filter(c=>draft[c]!=null && base.km[c]!=null && draft[c] < base.km[c]);
+  return {missing, lower};
+}
+function confirmProblems(){
+  const {missing, lower} = problems(); const parts = [];
+  if (!who()) parts.push("Ekki búið að velja nafn í „Skráð af“");
+  if (missing.length) parts.push(`Vantar: ${missing.map(label).join(", ")}`);
+  if (lower.length) parts.push(`Lægra en síðast: ${lower.map(label).join(", ")}`);
+  if (!parts.length) return true;
+  return confirm(parts.join("\n") + "\n\nHalda samt áfram?");
+}
+
+function status(t, err){ const s=document.getElementById("status"); s.textContent=t; s.className = "show"+(err?" err":""); }
+
+async function copyText(t){
+  try { await navigator.clipboard.writeText(t); return true; }
+  catch(e){ const ta=document.createElement("textarea"); ta.value=t; document.body.appendChild(ta); ta.select();
+    let ok=false; try{ ok=document.execCommand("copy"); }catch(_){} ta.remove(); return ok; }
+}
+
+document.getElementById("btnMail").onclick = async ()=>{
+  const rec = currentRecord();
+  if (!Object.keys(rec.km).length){ status("Engar tölur skráðar.", true); return; }
+  if (!confirmProblems()) return;
+  // vista í sögu
+  const hist = getHistory(); hist.unshift(rec); save(HISTORY_KEY, hist);
+  // nýjar tölur verða viðmið næst
+  base = { date: rec.date, km: Object.assign({}, base.km, rec.km) }; save(BASE_KEY, base);
+  // hreinsa skráningu (nafn helst)
+  draft = {}; notesEl.value = ""; dateEl.value = todayISO(); persist(); render();
+  const r = await openMail(rec);
+  status(r.ok ? `✓ Vistað í Sögu – ${r.msg}` : `✓ Vistað í Sögu. ${r.msg}`, !r.ok);
+  window.scrollTo({top: document.body.scrollHeight, behavior:"smooth"});
+};
+
+document.getElementById("btnCopy").onclick = async ()=>{
+  status(await copyText(buildText()) ? "Texti afritaður." : "Tókst ekki að afrita.", false);
+};
+
+document.getElementById("btnXlsx").onclick = ()=>{
+  if (typeof XLSX === "undefined"){ status("Excel-safnið hlóðst ekki (engin nettenging?). Notaðu „Afrita texta“.", true); return; }
+  if (!confirmProblems()) return;
+  downloadXlsx(currentRecord()); status("Excel-skrá sótt.");
+};
+
+/* ---------- saga ---------- */
+function showTab(tab){
+  document.getElementById("view-list").style.display = tab==="list" ? "block" : "none";
+  document.getElementById("view-history").style.display = tab==="history" ? "block" : "none";
+  document.getElementById("tab-list").className = "tab"+(tab==="list"?" active":"");
+  document.getElementById("tab-history").className = "tab"+(tab==="history"?" active":"");
+  if (tab==="history") loadHistory();
+}
+
+function loadHistory(){
+  const list = document.getElementById("history-list"), det = document.getElementById("history-detail");
+  list.style.display = "block"; det.style.display = "none";
+  const recs = getHistory();
+  if (!recs.length){ list.innerHTML = `<p class="empty-h">Engar vistaðar skráningar enn í þessu tæki.</p>`; return; }
+  const req = requiredCars();
+  list.innerHTML = "";
+  recs.forEach(r=>{
+    const n = req.filter(c=>r.km[c]!=null).length;
+    const el = document.createElement("div"); el.className = "card hrow";
+    el.innerHTML = `<div><b>${isDate(r.date)}</b><small>Skráð af: ${r.who || "—"} · ${stamp(r.savedAt)}</small></div>
+      <div class="n" style="color:${n===req.length?"var(--ok)":"var(--warn)"}">${n}/${req.length}</div>`;
+    el.onclick = ()=>showDetail(r);
+    list.appendChild(el);
+  });
+}
+
+function showDetail(r){
+  const list = document.getElementById("history-list"), det = document.getElementById("history-detail");
+  list.style.display = "none"; det.style.display = "block";
+  let rows = "";
+  GROUPS.forEach(g=>{
+    const cars = g.optional ? g.cars.filter(c=>r.km[c]!=null) : g.cars;
+    if (!cars.length) return;
+    rows += `<tr class="g"><td colspan="3">${g.name}</td></tr>`;
+    cars.forEach(c=>{
+      const v = r.km[c], p = r.prev[c];
+      const d = v!=null && p!=null ? `${v-p>=0?"+":""}${fmt(v-p)}` : "";
+      rows += `<tr><td>${label(c)}</td><td class="r">${v==null ? "<span style='color:var(--warn)'>ekki skráð</span>" : fmt(v)+" km"}</td><td class="r" style="color:var(--muted)">${d}</td></tr>`;
+    });
+  });
+  det.innerHTML = `
+    <button onclick="loadHistory()" style="margin-bottom:14px">← Til baka</button>
+    <div class="card">
+      <b>${isDate(r.date)}</b><br><small style="color:var(--muted)">Skráð af: ${r.who || "—"} · ${stamp(r.savedAt)}</small>
+      <table class="d">${rows}</table>
+      ${r.notes ? `<p style="margin:12px 0 0"><b>Athugasemdir:</b> ${r.notes.replace(/</g,"&lt;")}</p>` : ""}
+    </div>
+    <div class="actions">
+      <button class="primary" id="hMail">📧 Senda aftur</button>
+      <button id="hXlsx">📊 Sækja Excel-skrá</button>
+    </div>
+    <div id="hstatus" class="note"></div>`;
+  document.getElementById("hMail").onclick = async ()=>{ const x = await openMail(r); document.getElementById("hstatus").textContent = x.ok ? "Póstforrit opnað." : x.msg; };
+  document.getElementById("hXlsx").onclick = ()=>{ document.getElementById("hstatus").textContent = downloadXlsx(r) ? "Excel-skrá sótt." : "Excel-safnið hlóðst ekki (engin nettenging?)."; };
+}
+
+document.getElementById("btnClear").onclick = ()=>{
+  if (!confirm("Hreinsa allar tölur úr þessari skráningu?")) return;
+  draft = {}; notesEl.value=""; persist(); render();
+  document.getElementById("status").className="";
+};
+
+/* ---------- ræsing ---------- */
+const dateEl = document.getElementById("date"), notesEl = document.getElementById("notes");
+const whoSel = document.getElementById("whoSel"), whoOther = document.getElementById("whoOther");
+function who(){ return (whoSel.value===OTHER ? whoOther.value : whoSel.value).trim(); }
+whoSel.innerHTML = `<option value="">Veldu nafn…</option>` +
+  NAMES.map(n=>`<option>${n}</option>`).join("") + `<option value="${OTHER}">Annar…</option>`;
+function syncWho(){
+  const other = whoSel.value===OTHER;
+  whoOther.style.display = other ? "block" : "none";
+  whoSel.classList.toggle("empty", !whoSel.value);
+}
+function setWho(name){
+  if (!name) whoSel.value = "";
+  else if (NAMES.includes(name)) whoSel.value = name;
+  else { whoSel.value = OTHER; whoOther.value = name; }
+  syncWho();
+}
+whoSel.addEventListener("change", ()=>{ syncWho(); if (whoSel.value===OTHER) whoOther.focus(); persist(); });
+dateEl.value = draft._date || todayISO();
+setWho(draft._who || load(WHO_KEY) || "");
+notesEl.value = draft._notes || "";
+["_date","_who","_notes"].forEach(k=>delete draft[k]);
+[dateEl, whoOther, notesEl].forEach(el=>el.addEventListener("input", persist));
+render();
+</script>
+</body>
+</html>
