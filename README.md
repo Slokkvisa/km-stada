@@ -14,3 +14,10 @@ Efst í `<script>` í `index.html`:
 - `GROUPS` / `TYPES` – bílar, stöðvar og tegundir
 - `EMAIL` / `EMAIL_CC` – viðtakendur
 - `DEFAULT_BASE` – upphafsstaða (28.10.2026)
+
+## Forrit (PWA)
+Síðan er uppsetjanleg sem forrit og virkar án nets.
+- **Android / Chrome / Edge:** hnappurinn „📲 Setja upp“ efst, eða valmynd vafrans → „Setja upp forrit“.
+- **iPhone / iPad:** opna í Safari → Deila → „Bæta á heimaskjá“.
+
+Þegar `index.html` er breytt: hækka `VERSION` í `sw.js` (t.d. `kmstada-v2`) svo tækin sæki nýju útgáfuna.

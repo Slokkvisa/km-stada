@@ -1,0 +1,17 @@
+{
+  "name": "Kílómetrastaða – Slökkvilið Ísafjarðarbæjar",
+  "short_name": "Km staða",
+  "description": "Skráning á kílómetrastöðu bifreiða hjá Slökkviliði Ísafjarðarbæjar",
+  "lang": "is",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#f4f2ef",
+  "theme_color": "#b3261e",
+  "icons": [
+    { "src": "icon-192.png", "sizes": "192x192", "type": "image/png" },
+    { "src": "icon-512.png", "sizes": "512x512", "type": "image/png" },
+    { "src": "icon-maskable-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
+  ]
+}
